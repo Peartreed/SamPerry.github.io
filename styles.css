@@ -125,6 +125,45 @@ a {
   font-weight: 700;
 }
 
+.timeline-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  margin-top: 3.5rem;
+}
+
+.timeline-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 720px;
+  width: 100%;
+}
+
+.timeline-item {
+  text-align: center;
+}
+
+.timeline-year {
+  font-size: clamp(2rem, 2vw + 1rem, 3rem);
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.timeline-copy {
+  color: var(--subtle);
+}
+
+.timeline-copy p {
+  margin: 0;
+  font-size: clamp(1.05rem, 0.65vw + 0.72rem, 1.2rem);
+  line-height: 1.7;
+  color: rgba(226, 237, 255, 0.92);
+}
+
 .experience {
   margin-top: 3.5rem;
   padding-top: 2.8rem;
@@ -213,6 +252,14 @@ a {
   .job-row {
     max-width: 100%;
   }
+
+  .timeline-section {
+    min-height: auto;
+  }
+
+  .timeline-rail {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 560px) {
@@ -244,5 +291,9 @@ a {
 
   .job-year {
     padding-top: 0;
+  }
+
+  .timeline-year {
+    font-size: 1.8rem;
   }
 }
