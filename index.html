@@ -1,12 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sam Perry | Portfolio</title>
+  <title>Sam Perry | Full Stack Developer</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Sam Perry</h1>
-  <p>Portfolio website coming soon.</p>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="#home">SP</a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <p class="hero-greeting">Hi, my name is</p>
+      <h1 class="hero-name">Sam Perry</h1>
+      <h2 class="hero-title">I build beautiful digital experiences.</h2>
+      <p class="hero-description">
+        I'm a passionate developer interested in creating accessible, user-friendly web applications.
+        Currently, I'm focused on full-stack development and learning new technologies.
+        Let's build something amazing together.
+      </p>
+      <a href="mailto:your.email@gmail.com" class="cta-button">Get In Touch</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2 class="section-title">About</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          I'm a developer with a passion for creating elegant solutions to complex problems.
+          With experience in web development, I enjoy turning ideas into interactive applications.
+        </p>
+        <p>
+          When I'm not coding, you can find me [CHANGE THIS: add your hobbies/interests].
+        </p>
+
+        <p class="skills-label"><strong>Technologies I've worked with:</strong></p>
+        <ul class="skills-list">
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>HTML & CSS</li>
+          <li>Node.js</li>
+        </ul>
+      </div>
+
+      <div class="about-image">
+        <img src="https://via.placeholder.com/200" alt="Profile photo" />
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="experience-list">
+      <div class="job">
+        <h3 class="job-title">Company Name</h3>
+        <p class="job-position">Job Title</p>
+        <p class="job-dates">Month Year – Present</p>
+        <ul class="job-description">
+          <li>What did you accomplish or build here? (Change this)</li>
+          <li>Another achievement or responsibility (Change this)</li>
+          <li>Technology stack you used (Change this)</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3 class="job-title">Previous Company</h3>
+        <p class="job-position">Job Title</p>
+        <p class="job-dates">Month Year – Month Year</p>
+        <ul class="job-description">
+          <li>What did you accomplish here? (Change this)</li>
+          <li>Another achievement or responsibility (Change this)</li>
+          <li>Technology stack you used (Change this)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="Project screenshot" class="project-image" />
+        <div class="project-info">
+          <h3 class="project-name">Project Name</h3>
+          <p class="project-description">
+            Brief description of what this project does and why it's cool.
+          </p>
+          <p class="project-tech"><strong>Built with:</strong> React, JavaScript, CSS</p>
+          <div class="project-links">
+            <a href="https://example.com" target="_blank">Live Demo</a>
+            <a href="https://github.com/yourusername/project" target="_blank">View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="Project screenshot" class="project-image" />
+        <div class="project-info">
+          <h3 class="project-name">Another Project</h3>
+          <p class="project-description">
+            Brief description of what this project does and why it's cool.
+          </p>
+          <p class="project-tech"><strong>Built with:</strong> HTML, CSS, JavaScript</p>
+          <div class="project-links">
+            <a href="https://example.com" target="_blank">Live Demo</a>
+            <a href="https://github.com/yourusername/project" target="_blank">View Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="contact-description">
+      I'm always interested in hearing about new projects and opportunities.
+      Feel free to reach out if you'd like to chat!
+    </p>
+    <div class="contact-links">
+      <a href="mailto:your.email@gmail.com" class="contact-link">Email Me</a>
+      <a href="https://github.com/yourusername" target="_blank" class="contact-link">GitHub</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2024 Sam Perry. Built with HTML & CSS.</p>
+  </footer>
 </body>
 </html>
