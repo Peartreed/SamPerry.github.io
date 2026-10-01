@@ -78,5 +78,31 @@
         </section>
       </main>
     </div>
+
+    <script>
+      function updateTimelineScale() {
+        const items = document.querySelectorAll('.timeline-item');
+        const viewportCenter = window.innerHeight / 2;
+
+        items.forEach(item => {
+          const rect = item.getBoundingClientRect();
+          const itemCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(itemCenter - viewportCenter);
+          const maxDistance = window.innerHeight / 2;
+          
+          // Scale from 0.85 (far away) to 1.15 (center of screen)
+          const scale = 1.15 - (distance / maxDistance) * 0.3;
+          const clampedScale = Math.max(0.85, Math.min(1.15, scale));
+          
+          item.style.transform = `scale(${clampedScale})`;
+        });
+      }
+
+      window.addEventListener('scroll', updateTimelineScale, { passive: true });
+      window.addEventListener('resize', updateTimelineScale);
+      
+      // Initial call
+      updateTimelineScale();
+    </script>
   </body>
 </html>
