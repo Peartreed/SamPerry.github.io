@@ -116,7 +116,13 @@ a {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--line);
+  background: linear-gradient(to bottom, rgba(201, 216, 234, 0.18), rgba(201, 216, 234, 0.18));
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.timeline-rail-line.glowing {
+  box-shadow: 0 0 18px rgba(107, 196, 255, 0.65), 0 0 30px rgba(107, 196, 255, 0.25);
+  background: linear-gradient(to bottom, rgba(107, 196, 255, 0.32), rgba(107, 196, 255, 0.12));
 }
 
 .timeline-rail {
@@ -146,13 +152,14 @@ a {
   background: var(--bg);
   border: 2px solid var(--line);
   box-shadow: 0 0 0 4px var(--bg);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
 .timeline-item.active .timeline-marker {
   border-color: var(--glow);
-  box-shadow: 0 0 0 4px var(--bg), 0 0 16px rgba(107, 196, 255, 0.7);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 16px rgba(107, 196, 255, 0.7), 0 0 24px rgba(107, 196, 255, 0.35);
   background: rgba(107, 196, 255, 0.08);
+  transform: scale(1.08);
 }
 
 .timeline-item.active::before {
@@ -163,7 +170,7 @@ a {
   bottom: -10px;
   width: 2px;
   background: rgba(107, 196, 255, 0.8);
-  box-shadow: 0 0 12px rgba(107, 196, 255, 0.7);
+  box-shadow: 0 0 12px rgba(107, 196, 255, 0.7), 0 0 20px rgba(107, 196, 255, 0.35);
   border-radius: 999px;
 }
 
@@ -174,12 +181,13 @@ a {
   margin-bottom: 20px;
   letter-spacing: -0.02em;
   line-height: 1;
-  transition: color 0.25s ease, text-shadow 0.25s ease;
+  transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .timeline-item.active .timeline-year {
   color: #edf8ff;
   text-shadow: 0 0 12px rgba(107, 196, 255, 0.5);
+  transform: translateX(2px);
 }
 
 .timeline-copy {
