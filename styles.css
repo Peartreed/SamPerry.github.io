@@ -14,6 +14,8 @@
   --accent-strong: #5fe0c6;
   --tag-bg: rgba(122, 215, 200, 0.12);
   --shadow: rgba(0, 0, 0, 0.22);
+  --glow: rgba(107, 196, 255, 0.95);
+  --glow-soft: rgba(107, 196, 255, 0.18);
 }
 
 html {
@@ -156,12 +158,7 @@ a {
   bottom: 0;
   width: 2px;
   background: var(--line);
-  transition: none;
-}
-
-.timeline-rail-line.active {
-  background: #5fe0c6;
-  box-shadow: 0 0 12px rgba(95, 224, 198, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-rail {
@@ -176,6 +173,62 @@ a {
   position: relative;
   display: block;
   text-align: left;
+  padding: 0.2rem 0;
+  border-radius: 12px;
+  transition: transform 0.25s ease;
+}
+
+.timeline-item.active {
+  transform: translateX(2px);
+}
+
+.timeline-item.active .timeline-marker {
+  border-color: var(--glow);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 18px rgba(107, 196, 255, 0.8);
+  background: rgba(107, 196, 255, 0.12);
+}
+
+.timeline-item.active .timeline-year {
+  color: #eaf7ff;
+  text-shadow: 0 0 14px rgba(107, 196, 255, 0.7);
+}
+
+.timeline-item.active .timeline-copy {
+  position: relative;
+}
+
+.timeline-item.active .timeline-copy p {
+  color: #ecf9ff;
+  text-shadow: 0 0 10px rgba(107, 196, 255, 0.34);
+}
+
+.timeline-item.active::before {
+  content: "";
+  position: absolute;
+  left: -60px;
+  top: 8px;
+  bottom: -10px;
+  width: 2px;
+  background: rgba(107, 196, 255, 0.9);
+  box-shadow: 0 0 12px rgba(107, 196, 255, 0.8), 0 0 30px rgba(107, 196, 255, 0.35);
+  border-radius: 999px;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.timeline-item.active::after {
+  opacity: 1;
+  box-shadow: 0 0 16px rgba(107, 196, 255, 0.7);
 }
 
 .timeline-marker {
@@ -188,12 +241,7 @@ a {
   background: var(--bg);
   border: 2px solid var(--line);
   box-shadow: 0 0 0 4px var(--bg);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.timeline-item.active .timeline-marker {
-  border-color: #5fe0c6;
-  box-shadow: 0 0 0 4px var(--bg), 0 0 10px rgba(95, 224, 198, 0.6);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .timeline-year {
@@ -203,10 +251,12 @@ a {
   margin-bottom: 20px;
   letter-spacing: -0.02em;
   line-height: 1;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
 .timeline-copy {
   color: var(--subtle);
+  transition: text-shadow 0.25s ease;
 }
 
 .timeline-copy p {
@@ -215,6 +265,7 @@ a {
   line-height: 1.75;
   color: rgba(226, 237, 255, 0.88);
   max-width: 800px;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
 .experience {
