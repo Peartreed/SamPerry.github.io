@@ -187,7 +187,7 @@ a {
 .timeline-year {
   font-size: clamp(2.2rem, 3vw + 0.8rem, 3.5rem);
   font-weight: 500;
-  color: rgba(122, 215, 200, 0.85);
+  color: white;
   margin-bottom: 20px;
   letter-spacing: -0.02em;
   line-height: 1;
