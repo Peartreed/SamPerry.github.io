@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sam Perry</title>
-    <meta
-    />
+    <meta />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -23,14 +22,10 @@
           </nav>
         </aside>
 
-        <section class="about-sidebar">
+        <section class="about-sidebar" aria-label="Artist introduction">
           <div class="copy-block">
-            <p>
-              Hi there! Here are some art projects I've worked on.
-            </p>
-            <p>
-              Currently, I'm an undergrad at ... where I'm studying biology.
-            </p>
+            <p>Hi there! Here are some art projects I've worked on.</p>
+            <p>Currently, I'm an undergrad at ... where I'm studying biology.</p>
             <p>
               In my spare time, you can usually find me reading, swimming,
               and trying out new recipes.
@@ -91,19 +86,17 @@
           const itemCenter = rect.top + rect.height / 2;
           const distance = Math.abs(itemCenter - viewportCenter);
           const maxDistance = window.innerHeight / 2;
-          
-          // Scale from 0.85 (far away) to 1.15 (center of screen)
+
           const scale = 1.15 - (distance / maxDistance) * 0.3;
           const clampedScale = Math.max(0.85, Math.min(1.15, scale));
-          
+
           item.style.transform = `scale(${clampedScale})`;
         });
       }
 
       window.addEventListener('scroll', updateTimelineScale, { passive: true });
       window.addEventListener('resize', updateTimelineScale);
-      
-      // Initial call
+
       updateTimelineScale();
     </script>
   </body>
