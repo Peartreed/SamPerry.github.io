@@ -83,6 +83,7 @@
       function updateTimelineScale() {
         const items = document.querySelectorAll('.timeline-item');
         const viewportCenter = window.innerHeight / 2;
+        const timelineRailLine = document.querySelector('.timeline-rail-line');
 
         items.forEach(item => {
           const rect = item.getBoundingClientRect();
@@ -94,7 +95,22 @@
           const clampedScale = Math.max(0.85, Math.min(1.15, scale));
 
           item.style.transform = `scale(${clampedScale})`;
+
+          // Add glow effect when item is near center of viewport
+          if (distance < window.innerHeight / 3) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
         });
+
+        // Glow the timeline line if any item is active
+        const hasActiveItem = document.querySelector('.timeline-item.active');
+        if (hasActiveItem) {
+          timelineRailLine.classList.add('glowing');
+        } else {
+          timelineRailLine.classList.remove('glowing');
+        }
       }
 
       const mouseGlow = document.querySelector('.mouse-glow');
