@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="mouse-glow" aria-hidden="true"></div>
+
     <div class="page-shell">
       <header class="top-header">
         <aside class="sidebar">
@@ -94,6 +96,21 @@
           item.style.transform = `scale(${clampedScale})`;
         });
       }
+
+      const mouseGlow = document.querySelector('.mouse-glow');
+
+      document.addEventListener('pointermove', (event) => {
+        mouseGlow.style.left = `${event.clientX}px`;
+        mouseGlow.style.top = `${event.clientY}px`;
+      });
+
+      document.addEventListener('pointerleave', () => {
+        mouseGlow.style.opacity = '0';
+      });
+
+      document.addEventListener('pointerenter', () => {
+        mouseGlow.style.opacity = '1';
+      });
 
       window.addEventListener('scroll', updateTimelineScale, { passive: true });
       window.addEventListener('resize', updateTimelineScale);
