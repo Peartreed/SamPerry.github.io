@@ -156,6 +156,12 @@ a {
   bottom: 0;
   width: 2px;
   background: var(--line);
+  transition: none;
+}
+
+.timeline-rail-line.active {
+  background: #5fe0c6;
+  box-shadow: 0 0 12px rgba(95, 224, 198, 0.6);
 }
 
 .timeline-rail {
@@ -182,6 +188,12 @@ a {
   background: var(--bg);
   border: 2px solid var(--line);
   box-shadow: 0 0 0 4px var(--bg);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item.active .timeline-marker {
+  border-color: #5fe0c6;
+  box-shadow: 0 0 0 4px var(--bg), 0 0 10px rgba(95, 224, 198, 0.6);
 }
 
 .timeline-year {
