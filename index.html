@@ -68,7 +68,67 @@
             </div>
           </div>
         </section>
+
+        <section id="projects" class="timeline-section" aria-label="Career timeline">
+          <div class="timeline-rail">
+            <div class="timeline-progress"></div>
+
+            <article class="timeline-item">
+              <div class="timeline-year">2026</div>
+              <div class="timeline-copy">
+                <p></p>
+                <div class="timeline-visual" aria-hidden="true"></div>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-year">2025</div>
+              <div class="timeline-copy">
+                <p></p>
+                <div class="timeline-visual" aria-hidden="true"></div>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-year">2024</div>
+              <div class="timeline-copy">
+                <p></p>
+                <div class="timeline-visual" aria-hidden="true"></div>
+              </div>
+            </article>
+
+            <article class="timeline-item is-first">
+              <div class="timeline-year">Before 2023</div>
+              <div class="timeline-copy">
+                <p></p>
+                <div class="timeline-visual" aria-hidden="true"></div>
+              </div>
+            </article>
+          </div>
+        </section>
       </main>
     </div>
+
+    <script>
+      const timelineSection = document.querySelector('.timeline-section');
+      const timelineProgress = document.querySelector('.timeline-progress');
+
+      function updateTimelineProgress() {
+        if (!timelineSection || !timelineProgress) return;
+
+        const rect = timelineSection.getBoundingClientRect();
+        const sectionHeight = timelineSection.offsetHeight;
+        const viewportHeight = window.innerHeight;
+
+        const rawProgress = (viewportHeight - rect.top) / (sectionHeight + viewportHeight * 0.4);
+        const clamped = Math.min(Math.max(rawProgress, 0), 1);
+
+        timelineProgress.style.height = `${clamped * 100}%`;
+      }
+
+      updateTimelineProgress();
+      window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+      window.addEventListener('resize', updateTimelineProgress);
+    </script>
   </body>
 </html>
