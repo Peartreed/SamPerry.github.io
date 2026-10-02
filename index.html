@@ -53,7 +53,8 @@
                       muted
                       loop
                       playsinline
-                      data-video-thumbnail
+                      autoplay
+                      style="transform: scale(0.75);"
                     ></video>
 
                     <div class="video-overlay" aria-hidden="true">
@@ -100,32 +101,6 @@
     </div>
 
     <script>
-      function generateVideoThumbnail(video) {
-        const canvas = document.createElement('canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        return canvas.toDataURL();
-      }
-
-      function initializeVideos() {
-        const videos = document.querySelectorAll('[data-video-thumbnail]');
-        videos.forEach(video => {
-          video.addEventListener('loadedmetadata', () => {
-            video.currentTime = video.duration / 2;
-          });
-
-          video.addEventListener('seeked', () => {
-            const thumbnailData = generateVideoThumbnail(video);
-            video.poster = thumbnailData;
-            video.currentTime = 0;
-          });
-
-          video.load();
-        });
-      }
-
       function updateTimelineScale() {
         const items = document.querySelectorAll('.timeline-item');
         const viewportCenter = window.innerHeight / 2;
@@ -144,18 +119,8 @@
 
           if (distance < window.innerHeight / 3) {
             item.classList.add('active');
-
-            const video = item.querySelector('video');
-            if (video) {
-              video.play().catch(() => {});
-            }
           } else {
             item.classList.remove('active');
-
-            const video = item.querySelector('video');
-            if (video) {
-              video.pause();
-            }
           }
         });
 
@@ -185,7 +150,6 @@
       window.addEventListener('scroll', updateTimelineScale, { passive: true });
       window.addEventListener('resize', updateTimelineScale);
 
-      initializeVideos();
       updateTimelineScale();
     </script>
   </body>
