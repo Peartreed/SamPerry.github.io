@@ -46,6 +46,11 @@ img {
   display: block;
 }
 
+video {
+  max-width: 100%;
+  display: block;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -219,6 +224,65 @@ a {
   text-shadow: 0 0 10px rgba(107, 196, 255, 0.22);
 }
 
+/* Video overlay styles */
+.video-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 800px;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 8px;
+}
+
+.video-container:hover .video-overlay {
+  opacity: 1;
+}
+
+.play-pause-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(107, 196, 255, 0.2);
+  border: 2px solid rgba(107, 196, 255, 0.5);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.video-container:hover .play-pause-icon {
+  background: rgba(107, 196, 255, 0.35);
+  border-color: rgba(107, 196, 255, 0.8);
+  transform: scale(1.1);
+  box-shadow: 0 0 16px rgba(107, 196, 255, 0.4);
+}
+
+.play-pause-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: rgba(255, 255, 255, 0.8);
+  transition: fill 0.3s ease;
+}
+
+.video-container:hover .play-pause-icon svg {
+  fill: rgba(255, 255, 255, 1);
+}
+
 @media (max-width: 980px) {
   .page-shell {
     padding: 42px 28px 60px;
@@ -276,5 +340,15 @@ a {
 
   .timeline-rail-line {
     left: 15px;
+  }
+
+  .play-pause-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .play-pause-icon svg {
+    width: 20px;
+    height: 20px;
   }
 }
